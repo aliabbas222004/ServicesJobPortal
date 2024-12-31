@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>SignUp</title>
+    <style>
+      .sub-btn{
+        background-color: rgb(247, 182, 159);
+      }
+    </style>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+
+    <div class="container" style="padding-top: 4rem;">
+      <h4 style="text-align: center;">Sign Up</h4>
+          <form class="needs-validation" novalidate action="/user/signupAsUser" method="post" enctype="multipart/form-data">
+            <div class="row justify-content-center align-items-center">
+              <div class="col-md-6 col-lg-4">
+                <div class="row">
+                  <div class="mb-3">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="fullname" name="fullName" required>
+                    <div class="invalid-feedback">
+                      Please enter a proper Name
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                    <div class="invalid-feedback">
+                      Please enter a valid email-Id
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                    <div class="invalid-feedback">
+                      This field cannot be empty
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="mb-3">
+                    <label for="cnfrmpassword" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="cnfrmpassword" required>
+                    <div class="invalid-feedback incorrect-pass">
+                      This field cannot be empty
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="mb-3">
+                    <label for="city" class="form-label">Select City:</label>
+                    <select id="cityDropdown" name="city" class="form-control" required>
+                      <option value="">Select City</option>
+                    </select>
+    
+                  </div>
+    
+                  <script>
+                    const cities = [
+                      "Agra", "Ahmedabad", "Ajmer", "Aligarh", "Alwar", "Ambala", "Amritsar", "Asansol",
+                      "Aurangabad", "Bareilly", "Bhopal", "Bhubaneswar", "Bikaner", "Bilaspur", "Bokaro",
+                      "Chandigarh", "Chennai", "Coimbatore", "Dehradun", "Delhi", "Dhanbad", "Durgapur",
+                      "Ernakulam", "Faridabad", "Gandhinagar", "Ghaziabad", "Gurgaon", "Gwalior", "Hyderabad",
+                      "Indore", "Jabalpur", "Jaipur", "Jammu", "Jamshedpur", "Jodhpur", "Kalyan", "Kanpur",
+                      "Kochi", "Kolkata", "Kolhapur", "Lucknow", "Madurai", "Malappuram", "Mangaluru",
+                      "Mumbai", "Nagpur", "Nashik", "Navi Mumbai", "Noida", "Patna", "Pimpri-Chinchwad",
+                      "Pune", "Raipur", "Rajkot", "Ranchi", "Surat", "Thane", "Vadodara", "Varanasi",
+                      "Vijayawada", "Visakhapatnam", "Warangal"
+                    ];
+    
+                    document.addEventListener("DOMContentLoaded", function () {
+                      const cityDropdown = document.getElementById("cityDropdown");
+    
+                      cities.forEach(city => {
+                        const option = document.createElement("option");
+                        option.value = city;
+                        option.textContent = city;
+                        cityDropdown.appendChild(option);
+                      });
+                    });
+    
+                  </script>
+    
+    
+                </div>
+
+                <div class="row">
+                  <div class="mb-3">
+                    <label for="profileImage" class="form-label">Profile Image</label>
+                    <input type="file" class="form-control" id="profileImage" name="profileImage" required>
+                    <div>
+                      *Only jpeg file is allowed
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12 mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required style="cursor: pointer;">
+                      <label class="form-check-label" for="invalidCheck">
+                        Agree to terms and conditions
+                      </label>
+                      <div class="invalid-feedback">
+                        You must agree before submitting.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12 d-flex justify-content-center">
+                    <button class="btn sub-btn" type="submit">SignUp</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </form>
+
+          <div class="container mt-3 d-flex justify-content-center">
+            <p>Already have an account? <a href="/user/signinAsUser" class="anchor-createacc">SignIn</a></p>
+            <style>
+              .anchor-createacc{
+                color: rgb(250, 133, 90);
+              }
+              .anchor-createacc:hover{
+                color: rgb(247, 182, 159);
+              }
+            </style>
+          </div>
+
+          <script>
+            (() => {
+              'use strict'
+                const forms = document.querySelectorAll('.needs-validation')
+                Array.from(forms).forEach(form => {
+                  form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                      event.preventDefault()
+                      event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                  }, false)
+                })
+              })();
+
+              (() => {
+                'use strict'
+                  const forms = document.querySelectorAll('.needs-validation')
+                    Array.from(forms).forEach(form => {
+                        form.addEventListener('submit', event => {
+                            const password = document.getElementById('password');
+                            const confirmPassword = document.getElementById('cnfrmpassword');
+                            if (password.value !== confirmPassword.value) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                                document.getElementsByClassName('incorrect-pass')[0].innerHTML="Passwords do not match";
+                                confirmPassword.setCustomValidity('Passwords do not match');
+                            } else {
+                                confirmPassword.setCustomValidity('');
+                            }
+                            if (!form.checkValidity()) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                })();
+          </script>
+    </div>
+
+    <%- include('./partials/scripts') %>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head') %>
+    <title>SignIn</title>
+</head>
+
+<body>
+  <%- include('./partials/nav') %>
+  
+    <div class="container mt-3" style="padding-top: 4rem;">
+      <h4 style="text-align: center;">SignIn</h4>
+
+      <% if (locals.error) { %>
+        <div class="alert alert-danger" role="alert" style="background-color: transparent;color: red;">
+            <%= locals.error %>
+        </div>
+    <% } %>
+
+      <form class="needs-validation" novalidate action="/user/signinAsuser" method="post">
+
+        <div class="container">
+          <div class="row justify-content-center align-items-center">
+            <div class="col-md-6 col-lg-4">
+              <div class="row">
+                <div class="col mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" required>
+                  <div class="invalid-feedback">
+                    Please enter a valid email-Id
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" name="password" required>
+                  <div class="invalid-feedback">
+                    This field cannot be empty
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col text-center">
+                  <button type="submit" class="btn sub-btn">Submit</button>
+                  <style>
+                    .sub-btn{
+                      background-color: rgb(247, 182, 159);
+                    }
+                    .btn:hover{
+                      background-color:rgb(250, 133, 90) ;
+                      border: none;
+                      color: rgb(255, 255, 255);
+                    }
+                  </style>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>        
+      </form>
+
+      <div class="container d-flex justify-content-center mt-3">
+        <p>Don't have an account? <a href="/user/signupAsUser" class="anchor-createacc">Create Account</a></p>
+
+        <style>
+          .anchor-createacc{
+            color: rgb(250, 133, 90);
+          }
+          .anchor-createacc:hover{
+            color: rgb(247, 182, 159);
+          }
+        </style>
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        'use strict'
+        const forms = document.querySelectorAll('.needs-validation')
+        Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+          }, false)
+        })
+      })();
+
+      
+    </script>
+
+    <%- include('./partials/scripts') %>
+</body>
+
+</html>

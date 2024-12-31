@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+</head>
+
+<body>
+    <%- include('./partials/nav') %>
+    <div class="container text-center" style="margin-top: 70px;">
+        <div class="alert alert-success" role="alert">
+            <h1 class="mb-3">Service Successfully Booked! 🎉</h1>
+            <p>Thank you for choosing our services. Your booking has been confirmed, and we’re excited to serve you.</p>
+            <p>If you have any questions or need further assistance, feel free to <a href="/" class="text-primary">contact us</a>.</p>
+            <p class="mt-4">
+                <a href="/" class="btn btn-primary">Back to Home</a>
+                <a href="/user/searchservice" class="btn">View More Services</a>
+            </p>
+        </div>
+    </div>
+
+    <%- include('./partials/footer') %>
+    <%- include('./partials/scripts') %>
+</body>
+
+</html>

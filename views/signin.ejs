@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head') %>
+  <title>SignIn</title>
+  <style>
+    .signin-container {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .signin-header {
+      font-family: 'Poppins', sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .alert-danger {
+      border: 1px solid red;
+      border-radius: 10px;
+    }
+
+    .btn-link {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .btn-link:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+
+    .anchor-createacc {
+      color: rgb(250, 133, 90);
+    }
+
+    .anchor-createacc:hover {
+      color: rgb(247, 182, 159);
+    }
+
+    .divider {
+      text-align: center;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 45%;
+      height: 1px;
+      background: #ccc;
+    }
+
+    .divider::before {
+      left: 0;
+    }
+
+    .divider::after {
+      right: 0;
+    }
+
+    .divider span {
+      background: #f9f9f9;
+      padding: 0 10px;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+  <%- include('./partials/nav') %>
+
+  <div class="container mt-5" style="padding-top: 4rem;">
+    <div class="signin-container">
+      <h4 class="signin-header">Sign In</h4>
+
+      <% if (locals.error) { %>
+      <div class="alert alert-danger" role="alert" style="color: red;">
+        <%= locals.error %>
+      </div>
+      <% } %>
+
+      <div class="d-flex justify-content-center mt-4">
+        <a href="/user/signinAsUser" class="btn btn-link">Sign In as a User</a>
+        <a href="/user/signinAsCompany" class="btn btn-link">Sign In as a Company</a>
+      </div>
+
+      <div class="divider"><span>OR</span></div>
+
+      <div class="d-flex justify-content-center">
+        <p>Don't have an account? 
+          <a href="/user/signup" class="anchor-createacc">Create Account</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <%- include('./partials/scripts') %>
+</body>
+
+</html>

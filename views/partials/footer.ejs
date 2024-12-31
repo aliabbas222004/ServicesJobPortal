@@ -1,0 +1,84 @@
+<style>
+    .footer-list a {
+        text-decoration: none;
+        color: black;
+        font-size: 1rem;
+    }
+
+    .footer-list a:hover {
+        color: rgb(250, 133, 90);
+    }
+    .footer-list-contact a img{
+        padding: 2px 2px;
+    }
+
+    .footer-list-contact a img:hover {
+        background-color: rgb(250, 133, 90);
+        border-radius: 5px;
+    }
+
+    .fade-in-text {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .fade-in-text.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+</style>
+
+<footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
+    <div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary">
+        <div class="row justify-content-center text-center">
+            <div class="col-8 col-lg-6 mb-3">
+                <a class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none justify-content-center"
+                    href="/" aria-label="ServicesAndJob">
+                    <img src="/pictures/logo1.jpg" alt="img" width="100px">
+                    &nbsp;&nbsp;<span style="font-size: 3rem;">HireBooker</span>
+                </a>
+                <ul class="list-unstyled d-flex justify-content-center footer-list-contact">
+                    <li class="mb-2 mx-2"><a href="https://www.instagram.com/aliabbasbhaisaheb?igsh=amcyNmJ4ZjBpaDVi"
+                            target="_blank"><img
+                                src="https://img.icons8.com/?size=100&id=Xy10Jcu1L2Su&format=png&color=000000"
+                                alt="Instagram" style="width: 40px;"></a></li>
+                    <li class="mb-2 mx-2"><a href="https://wa.me/7048897540" target="_blank"><img
+                                src="https://img.icons8.com/?size=100&id=16713&format=png&color=000000" alt="Whatsapp"
+                                style="width: 40px;"></a></li>
+                    <li class="mb-2 mx-2"><a href="/" target="_blank"><img
+                                src="https://img.icons8.com/?size=100&id=118497&format=png&color=000000" alt="FaceBook"
+                                style="width: 40px;"></a></li>
+                    <li class="mb-2 mx-2"><a href="mailto:aliabbasbhaisaheb.com" target="_blank"><img
+                                src="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000"
+                                alt="Gmail" style="width: 40px;"></a></li>
+                </ul>
+            </div>
+            <div class="col-8 col-lg-2">
+                <h5>Links</h5>
+                <ul class="list-unstyled footer-list">
+                    <li class="mb-2"><a href="/"><img
+                                src="https://img.icons8.com/?size=100&id=14096&format=png&color=000000" alt="Home"
+                                style="width: 30px;">&nbsp;&nbsp;Home</a></li>
+                    <li class="mb-2"><a href="/user/aboutus"><img
+                                src="https://img.icons8.com/?size=100&id=qDNClnB7Z4Ky&format=png&color=000000"
+                                alt="About Us" style="width: 30px;">&nbsp;&nbsp;About Us</a></li>
+                    <li class="mb-2"><a href="/"><img
+                                src="https://img.icons8.com/?size=100&id=2333&format=png&color=000000" alt="Works"
+                                style="width: 30px;">&nbsp;&nbsp;Works</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    window.addEventListener('scroll', function () {
+        const fadeInText = document.querySelector('.fade-in-text');
+        const rect = fadeInText.getBoundingClientRect();
+
+        if (rect.top < window.innerHeight) {
+            fadeInText.classList.add('visible');
+        }
+    });
+</script>

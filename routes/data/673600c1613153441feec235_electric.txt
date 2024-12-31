@@ -1,0 +1,12 @@
+[
+  {
+    "question": "abcd",
+    "answers": [
+      "w",
+      "w",
+      "w",
+      "w"
+    ],
+    "correctOption": "3"
+  }
+]

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <title>Home Page</title>
+        <style>
+            .btn {
+                background-color: rgb(247, 182, 159);
+            }
+
+            .btn:hover {
+                background-color: rgb(250, 133, 90);
+            }
+        </style>
+
+</head>
+
+<body>
+    <%- include('./partials/nav') %>
+    
+    <form id="quiz-form" action="/user/validatequiz" method="post">
+        <div class="container vh-100 d-flex justify-content-center align-items-center">
+            <div class="card shadow-lg p-4 w-100" style="max-width: 600px;">
+                <h1 class="text-center mb-4">Job Quiz</h1>
+                <% if (questions && questions.length > 0) { %>
+                    <% questions.forEach((question, index) => { %>
+                        <div class="mb-4">
+                            <h4 class="text-primary">Question <%= index + 1 %>:</h4>
+                            <p class="fw-bold"><%= question.question %></p>
+                            <ul class="list-group">
+                                <% question.answers.forEach((answer, optionIndex) => { %>
+                                    <li class="list-group-item">
+                                        <label>
+                                            <input type="radio" name="answers[<%= index %>]" value="<%= optionIndex %>" required>
+                                            <%= answer %>
+                                        </label>
+                                    </li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p class="text-center text-danger">No questions available.</p>
+                <% } %>
+                <input type="hidden" name="companyId" value="<%= companyId %>">
+                <input type="hidden" name="serviceType" value="<%= serviceType %>">
+                <div class="text-center">
+                    <button type="submit" class="btn mt-4">Submit Quiz</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <%- include('./partials/footer') %>
+
+    <%- include('./partials/scripts') %>
+</body>
+
+</html>

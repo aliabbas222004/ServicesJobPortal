@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head') %>
+  <title>About Us</title>
+  <style>
+    .about-header {
+      font-family: 'Poppins', sans-serif;
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
+    .about-section {
+      background: #f9f9f9;
+      padding: 3rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-content {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.8;
+      font-size: 18px;
+      color: #555;
+    }
+
+    .highlight {
+      color: rgb(250, 133, 90);
+      font-weight: bold;
+    }
+
+    .team-section {
+      margin-top: 3rem;
+    }
+
+    .team-header {
+      text-align: center;
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .team-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .team-card img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    .team-card h5 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .team-card p {
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+  <%- include('./partials/nav') %>
+
+  <div class="container" style="margin-top: 70px;">
+    <!-- About Us Header -->
+    <h1 class="about-header">About Us</h1>
+
+    <!-- About Us Content -->
+    <div class="about-section">
+      <p class="about-content">
+        Welcome to <span class="highlight">Our Platform</span>, where innovation meets opportunity. Founded with a mission to bridge gaps and connect people, 
+        our platform is dedicated to empowering individuals and organizations alike. Whether you are seeking career growth, business partnerships, or community 
+        engagement, we are here to support you every step of the way.
+      </p>
+
+      <p class="about-content mt-3">
+        With years of expertise and a passion for creating meaningful solutions, our team has developed a space that fosters collaboration and inspires success. 
+        Our values are rooted in <span class="highlight">integrity</span>, <span class="highlight">innovation</span>, and <span class="highlight">inclusion</span>. 
+        These principles guide every decision we make and every service we provide.
+      </p>
+
+      <p class="about-content mt-3">
+        We take pride in offering a diverse range of features tailored to meet your needs, including:
+      </p>
+      <ul class="about-content">
+        <li>Comprehensive job portals to help individuals and companies find their perfect match.</li>
+        <li>Networking tools to build meaningful connections within your industry.</li>
+        <li>Resources for skill development, mentorship, and community impact.</li>
+      </ul>
+
+      <p class="about-content mt-3">
+        As we look to the future, we remain committed to expanding our services and driving positive change. Join us on this journey, and let's achieve greatness together.
+      </p>
+    </div>
+
+
+  <%- include('./partials/scripts') %>
+</body>
+
+</html>
